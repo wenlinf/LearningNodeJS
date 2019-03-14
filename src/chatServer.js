@@ -6,7 +6,7 @@ var tweets=[];
 app.get('/',function(req,res){
     res.send('welcome to node twitter');
 })
-app.post('/send',bodyParser.json(),function(req,res){
+app.post('/send',bodyParser.urlencoded,function(req,res){
     if(req.body&&req.body.tweet){
         tweets.push(req.body.tweet);
         res.send({status:"ok",message:"Tweet received"});
